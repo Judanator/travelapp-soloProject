@@ -1,26 +1,32 @@
 import React from "react";
 import "./login.css";
-import { Form, FormLabel, Button } from "react-bootstrap";
 
 const Login = () => {
+  // fetch post request 
+  const submitBtn = event => {
+    event.preventDefault()
+    fetch('http://localhost:8080/api/signup')
+    .then(res => console.log(res))
+  }
+
   return (
     <div className="loginMainDiv">
       <h1 className="signUpTitle"> SIGN UP </h1>
         <form className="signupForm">
             <label> First Name </label>
-             <input />
+             <input type="firstName"/>
 
             <label> Last Name </label>
-             <input />
+             <input type="lastName"/>
 
             <label> Email </label>
-             <input />
+             <input type="email"/>
 
             <label> Password </label>
-             <input />
+             <input type="password" />
 
             <br/>
-            <button type="submit" className="submitBtn"> SUBMIT </button>
+            <button type="submit" className="submitBtn" onClick={submitBtn}> SUBMIT </button>
         </form>        
     </div>
   );

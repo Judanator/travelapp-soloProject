@@ -10,14 +10,17 @@
     ]
   },
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "create": "webpack"
+    "start": "node server/server.js",
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open\" \"nodemon server/server.js\"",
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.11",
     "nodemon": "^2.0.7",
     "react": "^16.14.0",
     "react-bootstrap": "^1.4.3",
@@ -29,6 +32,8 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^4.3.0",
     "html-webpack-plugin": "^4.4.1",
     "style-loader": "^1.2.1",
